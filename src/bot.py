@@ -1,5 +1,4 @@
 import discord, os
-from logging import info as logging_info
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -13,7 +12,7 @@ client: commands.Bot = commands.Bot(command_prefix="<", intents=intents)
 
 @client.event
 async def on_ready() -> None:
-	logging_info(f"Logged on as {client.user}")
+	print(f"Logged on as {client.user}")
 	return
 
 cogs: list[str] = ['cards', 'misc']
