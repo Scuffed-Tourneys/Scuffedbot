@@ -20,6 +20,16 @@ class neko(commands.Cog):
 	async def waifu(self, interaction:discord.Interaction) -> None:
 		await interaction.response.send_message(file=discord.File(await image("https://api.waifu.pics/nsfw/waifu"), "waifu.png"))
 
+	@discord.slash_command(name= "neko", description="Get one NSFW neko pic.")
+	@commands.is_nsfw()
+	async def neko(self, interaction:discord.Interaction) -> None:
+		await interaction.response.send_message(file=discord.File(await image("https://api.waifu.pics/nsfw/neko"), "neko.png"))
+
+	@discord.slash_command(name= "trap", description="Get one NSFW trap pic.")
+	@commands.is_nsfw()
+	async def trap(self, interaction:discord.Interaction) -> None:
+		await interaction.response.send_message(file=discord.File(await image("https://api.waifu.pics/nsfw/trap"), "trap.png"))
+
 def setup(client: commands.Bot) -> None:
 	client.add_cog(neko(client))
 	return

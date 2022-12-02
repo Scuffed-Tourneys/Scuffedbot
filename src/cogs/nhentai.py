@@ -5,6 +5,7 @@ from NHentai import NHentai
 
 # BROKEN COG
 # Nhentai does not have an api and after they added cloudflare the module broke
+# https://github.com/AlexandreSenpai/NHentai-API/pull/43
 
 nh: NHentai = NHentai()
 class NHentaiCog(commands.Cog):
