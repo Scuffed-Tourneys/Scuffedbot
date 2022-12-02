@@ -4,17 +4,18 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-intents = discord.Intents.default()
+intents: discord.Intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 
-client = commands.Bot(command_prefix="<", intents=intents)
+client: commands.Bot = commands.Bot(command_prefix="<", intents=intents)
 
 @client.event
-async def on_ready():
+async def on_ready() -> None:
 	print(f"Logged on as {client.user}")
+	return
 
-cogs = ['cards', 'misc']
+cogs: list[str] = ['cards', 'misc']
 
 for cog in cogs:
 	client.load_extension(f'cogs.{cog}')
