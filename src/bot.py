@@ -1,4 +1,5 @@
 import discord, os
+from logging import info as logging_info
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -12,7 +13,7 @@ client = commands.Bot(command_prefix="<", intents=intents)
 
 @client.event
 async def on_ready():
-	print(f"Logged on as {client.user}")
+	logging_info(f"Logged on as {client.user}")
 
 cogs = ['cards', 'misc']
 
