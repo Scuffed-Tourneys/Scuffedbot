@@ -15,7 +15,7 @@ async def on_ready() -> None:
 	print(f"Logged on as {client.user}")
 	return
 
-cogs: list[str] = ['cards', 'misc']
+cogs: list[str] = ['cards', 'misc', 'neko']
 
 for cog in cogs:
 	client.load_extension(f'cogs.{cog}')
