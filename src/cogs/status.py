@@ -5,7 +5,7 @@ from discord.ext import commands
 from discord.ext import tasks
 import logging
 
-status_list = [
+status_list: list[str] = [
 	"https://vndb.org/v4037",
 	"astolfo best waifu",
 	"pew pew you ded now haha",
@@ -33,7 +33,7 @@ status_list = [
 	"NEKOPARA Vol. 4"
 ]
 
-watchlist = [
+watchlist: list[str] = [
 	"HELO die",
 	"notmyname fail at life",
 	"notmyname look at hentai",
@@ -71,14 +71,14 @@ class status(commands.Cog):
 
 	@tasks.loop(minutes=5)
 	async def status(self):
-		await self.bot.wait_until_ready()
+		await self.client.wait_until_ready()
 		if getrandbits(1) == 1:
 			value = choice(status_list)
-			await self.bot.change_presence(activity=discord.Game(name=value))
+			await self.client.change_presence(activity=discord.Game(name=value))
 			logging.info(f"Status set to: playing {value}")
 		else:
 			value = choice(watchlist)
-			await self.bot.change_presence(activity=discord.Activity(name=value, type=discord.ActivityType.watching))
+			await self.client.change_presence(activity=discord.Activity(name=value, type=discord.ActivityType.watching))
 			logging.info(f"Status set to: watching {value}")
 
 	@commands.Cog.listener()

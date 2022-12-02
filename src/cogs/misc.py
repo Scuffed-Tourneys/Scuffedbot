@@ -1,4 +1,4 @@
-import discord, requests, random
+import discord
 from discord.ext import commands
 from logging import info as logging_info
 from math import floor
