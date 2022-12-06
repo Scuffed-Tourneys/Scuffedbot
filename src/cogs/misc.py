@@ -8,7 +8,7 @@ class Misc(commands.Cog):
 		self.client: commands.Bot  = client
 		return
 	
-	@discord.slash_command(name= "ping", description="Get bot latency to discord")
+	@discord.slash_command(name="ping", description="Get bot latency to discord")
 	async def ping(self, interaction: discord.Interaction) -> None:
 		await interaction.response.send_message(f'Pong! {floor(self.client.latency * 1000)}ms')
 		logging_info('{floor(self.client.latency * 1000)}ms')
